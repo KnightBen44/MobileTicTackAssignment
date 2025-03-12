@@ -23,7 +23,11 @@ public class GameActivity extends AppCompatActivity {
     String player = "X";
     boolean gameEnded = false;
 
-
+    /// Quits the game and returns to the main screen
+    public void quitGame(View v) {
+        Intent gameIntent = new Intent(this, MainActivity.class);
+        startActivity(gameIntent); // begin the game activity
+    }
 
     /// Changes the image of a grid space on user click & changes players
     public void onGridSpaceClick(View v) {
@@ -81,7 +85,12 @@ public class GameActivity extends AppCompatActivity {
         String versus = name1 + " vs " + name2;
         winnerText.setText(versus); // set default text to names
 
-
+        // Clear all ImageViews
+        androidx.gridlayout.widget.GridLayout gridLayout = findViewById(R.id.gridLayout);
+        for (int i = 0; i < gridLayout.getChildCount(); i++) {
+            ImageView imageInGrid = (ImageView) gridLayout.getChildAt(i);
+            imageInGrid.setImageResource(0);
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
