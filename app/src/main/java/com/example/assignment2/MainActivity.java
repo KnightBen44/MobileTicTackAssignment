@@ -14,8 +14,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 public class MainActivity extends AppCompatActivity {
     Button startGameBtn;
     TextView errorText;
@@ -58,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Validate user input for name
         if (userInput.isEmpty() || userInput2.isEmpty()) { // if blank
-            errorText.setText("Your name(s) cannot be empty");
+            errorText.setText(R.string.validation_empty_name);
         } else if (!onlyLetters || !onlyLetters2) { // if invalid
-            errorText.setText("Your name(s) must contain only letters");
+            errorText.setText(R.string.validation_invalid_name);
         } else { // valid names entered
             errorText.setText(""); // no error message
 
