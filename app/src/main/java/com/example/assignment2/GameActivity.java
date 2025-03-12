@@ -1,9 +1,10 @@
 package com.example.assignment2;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,17 +32,37 @@ public class GameActivity extends AppCompatActivity {
 
         // Make sure there is no image in the ImageView before changing the image
         if (img.getDrawable() == null) {
+            // fade-in animation for Xs & Os
+            Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+
+            fadeIn.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    img.setVisibility(View.VISIBLE);
+                }
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                }
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+            });
+
             if (Objects.equals(player, "X")) { // set image to current player's symbol
-//                img.setVisibility(false);
                 img.setImageResource(R.drawable.x);
+                img.startAnimation(fadeIn);
                 player = "O";
             } else if (Objects.equals(player, "O")) {
                 img.setImageResource(R.drawable.o);
+                img.startAnimation(fadeIn);
                 player = "X";
             }
+        } else { // grid space already contains an image
+            Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+
+            // Animate the X or O if user clicks on it
+            img.startAnimation(shake); // the letter shakes
         }
-
-
     }
 
     @Override
@@ -56,14 +77,11 @@ public class GameActivity extends AppCompatActivity {
         name1 = intent.getStringExtra("Name1"); // get data from intent
         name2 = intent.getStringExtra("Name2");
 
-        winnerText = findViewById(R.id.winnerText);
+        winnerText = findViewById(R.id.textWinner);
         String versus = name1 + " vs " + name2;
         winnerText.setText(versus); // set default text to names
 
-        // Game Play code here
-//        while (!gameEnded){
-//
-//        }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

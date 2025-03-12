@@ -16,4 +16,6 @@
     <string name="token20">bottom left token</string>
     <string name="token21">bottom center token</string>
     <string name="token22">bottom right token</string>
+    <string name="play_again">Play Again</string>
+    <string name="quit">Quit</string>
 </resources>
