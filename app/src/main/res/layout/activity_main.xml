@@ -83,6 +83,8 @@
         android:layout_marginTop="65dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="140dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

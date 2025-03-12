@@ -19,20 +19,20 @@ public class MainActivity extends AppCompatActivity {
     TextView errorText;
     String userInput;
     String userInput2;
-    String userName; // name
 
     public void startGame(View v) {
         Intent gameIntent = new Intent(this, GameActivity.class);
-        gameIntent.putExtra("Name1", userInput); // store the user's name
-        gameIntent.putExtra("Name2", userInput2); // store the user 2's name
+        gameIntent.putExtra("Name1", userInput); // store user 1's name
+        gameIntent.putExtra("Name2", userInput2); // store user 2's name
         startActivity(gameIntent); // begin the game activity
     }
     /// Generates a random number after validating the user's name
     public void takeNameInput(View v) {
         // Take user input
         EditText nameInputField = findViewById(R.id.enterNameText);
+        EditText nameInputField2 = findViewById(R.id.enterName2Text);
         userInput = String.valueOf(nameInputField.getText());
-        userInput2 = String.valueOf(nameInputField.getText());
+        userInput2 = String.valueOf(nameInputField2.getText());
 
         // Loop through all characters of the name and check for anything other than letters or space
         boolean onlyLetters = true;
@@ -72,14 +72,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        // *** setContextView MUST COME BEFORE ANY findViewById ***
+        setContentView(R.layout.activity_main);
 
         startGameBtn = findViewById(R.id.startGameBtn);
         errorText = findViewById(R.id.errorText);
 
-        setContentView(R.layout.activity_main);
-
-        Intent intent = getIntent(); // get the intent made in MainActivity
-        String userName = intent.getStringExtra("Name"); // user's name
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
