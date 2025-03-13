@@ -22,12 +22,26 @@ public class GameActivity extends AppCompatActivity {
     TextView winnerText;
     String player = "X";
     boolean gameEnded = false;
+    int[][] boardState = new int[3][3];
+
 
     /// Quits the game and returns to the main screen
     public void quitGame(View v) {
         Intent gameIntent = new Intent(this, MainActivity.class);
         startActivity(gameIntent); // begin the game activity
     }
+
+    /// Checks and displays the winner
+    public void checkWin() {
+        // Check rows and columns
+        for (int i = 0; i < 3; i++) {
+            if (boardState[i][0] == boardState[i][1] && boardState[i][1] == boardState[i][2] && boardState[i][0] != 0)
+            {  declareWinner(boardState[i][0]);            return;        }
+            if (boardState[0][i] == boardState[1][i] && boardState[1][i] == boardState[2][i] && boardState[0][i] != 0) {            declareWinner(boardState[0][i]);            return;        }    }
+        // Checks for diagonals
+        if (boardState[0][0] == boardState[1][1] && boardState[1][1] == boardState[2][2] && boardState[0][0] != 0) {        declareWinner(boardState[0][0]);        return;    }    if (boardState[0][2] == boardState[1][1] && boardState[1][1] == boardState[2][0] && boardState[0][2] != 0) {        declareWinner(boardState[0][2]);        return;    }
+        // Check for a tie
+         boolean tie = true;    for (int i = 0; i < 3; i++) {        for (int j = 0; j < 3; j++) {            if (boardState[i][j] == 0) {                tie = false;                break;            }        }    }    if (tie) {        winnerText.setText("It's a Tie!");    }}private void declareWinner(int playerCode) {    String winner = (playerCode == 1) ? name1 : name2;    winnerText.setText("Congrats " + winner + "!");    gameEnded = true;}
 
     /// Changes the image of a grid space on user click & changes players
     public void onGridSpaceClick(View v) {
