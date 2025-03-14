@@ -2,7 +2,6 @@ package com.example.assignment2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,7 +18,6 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Objects;
 
 public class GameActivity extends AppCompatActivity {
-    String TAG = " --- LOG DEBUG --- ";
     String name1; // name of player 1
     String name2; // name of player 2
     TextView winnerText;
@@ -130,7 +128,6 @@ public class GameActivity extends AppCompatActivity {
         // the one that we manually gave it)
         String imgFullName = getResources().getResourceName(v.getId());
         String imgName = imgFullName.substring(imgFullName.lastIndexOf("/")+1);
-        Log.d(TAG, "imgName: " + imgName); // Log name for debug
         // Extract row & column from view id (name)
         int clickedRow = Integer.parseInt(""+imgName.charAt(imgName.length() - 2));
         int clickedColumn = Integer.parseInt(""+imgName.charAt(imgName.length() - 1));
