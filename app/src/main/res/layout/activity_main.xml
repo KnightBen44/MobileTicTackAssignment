@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/titleText"
+        android:id="@+id/lblTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -19,13 +19,13 @@
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="35sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/enterNameText"
+        app:layout_constraintBottom_toTopOf="@+id/txtEnterName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/enterNameText"
+        android:id="@+id/txtEnterName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -36,13 +36,13 @@
         android:ems="10"
         android:hint="@string/enter_name_input"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/startGameBtn"
+        app:layout_constraintBottom_toTopOf="@+id/btnStartGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTitle" />
 
     <EditText
-        android:id="@+id/enterName2Text"
+        android:id="@+id/txtEnterName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -53,15 +53,15 @@
         android:ems="10"
         android:hint="@string/enter_name_2_input"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/startGameBtn"
+        app:layout_constraintBottom_toTopOf="@+id/btnStartGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleText"
+        app:layout_constraintTop_toBottomOf="@+id/lblTitle"
         app:layout_constraintVertical_bias="0.924" />
 
     <Button
-        android:id="@+id/startGameBtn"
+        android:id="@+id/btnStartGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -73,7 +73,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterNameText" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEnterName" />
 
     <TextView
         android:id="@+id/errorText"
@@ -88,5 +88,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startGameBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStartGame" />
 </androidx.constraintlayout.widget.ConstraintLayout>

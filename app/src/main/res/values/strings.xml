@@ -18,4 +18,5 @@
     <string name="token22">bottom right token</string>
     <string name="play_again">Play Again</string>
     <string name="quit">Quit</string>
+    <string name="it_s_a_tie">It\'s a Tie!</string>
 </resources>

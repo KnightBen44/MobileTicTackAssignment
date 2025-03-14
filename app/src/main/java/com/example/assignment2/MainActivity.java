@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
     /// Generates a random number after validating the user's name
     public void takeNameInput(View v) {
         // Take user input
-        EditText nameInputField = findViewById(R.id.enterNameText);
-        EditText nameInputField2 = findViewById(R.id.enterName2Text);
+        EditText nameInputField = findViewById(R.id.txtEnterName);
+        EditText nameInputField2 = findViewById(R.id.txtEnterName2);
         userInput = String.valueOf(nameInputField.getText());
         userInput2 = String.valueOf(nameInputField2.getText());
 
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         // *** setContextView MUST COME BEFORE ANY findViewById ***
         setContentView(R.layout.activity_main);
 
-        startGameBtn = findViewById(R.id.startGameBtn);
+        startGameBtn = findViewById(R.id.btnStartGame);
         errorText = findViewById(R.id.errorText);
 
 
